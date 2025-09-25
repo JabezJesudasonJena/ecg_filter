@@ -20,6 +20,7 @@ plt.title("Original ECG Signal with Noise", fontsize=12)
 plt.ylabel("Voltage (mV)")
 plt.ylim([-1.2, 1.2])
 plt.grid(True, linestyle="--", alpha=0.5)
+plt.savefig("ecg_noisy.png", dpi=300, bbox_inches="tight")  # save
 plt.show()
 
 # --- Plot 2: Traditional Filter ---
@@ -29,6 +30,7 @@ plt.title("Traditional Low-Pass Filter (Butterworth/Chebyshev)", fontsize=12)
 plt.ylabel("Voltage (mV)")
 plt.ylim([-1.2, 1.2])
 plt.grid(True, linestyle="--", alpha=0.5)
+plt.savefig("ecg_traditional.png", dpi=300, bbox_inches="tight")  # save
 plt.show()
 
 # --- Plot 3: Fractional Prabhakar-based Filter ---
@@ -39,4 +41,5 @@ plt.xlabel("Time (s)")
 plt.ylabel("Voltage (mV)")
 plt.ylim([-1.2, 1.2])
 plt.grid(True, linestyle="--", alpha=0.5)
+plt.savefig("ecg_prabhakar.png", dpi=300, bbox_inches="tight")  # save
 plt.show()
