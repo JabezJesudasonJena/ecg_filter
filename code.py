@@ -1,19 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Time vector
 t = np.linspace(0, 10, 1000)
 
-# Original noisy ECG signal
 noisy_ecg = 0.8 * np.exp(-0.3 * (t - 3) ** 2) * np.cos(10 * t) + 0.2 * np.sin(40 * t)
 
-# Traditional low-pass filter (simplified: noise removed but smoothed)
 traditional_filtered = 0.8 * np.exp(-0.3 * (t - 3) ** 2) * np.cos(10 * t)
 
-# Fractional Prabhakar-based filter (adaptive, preserves some detail)
 prabhakar_filtered = 0.8 * np.exp(-0.3 * (t - 3) ** 2) * np.cos(10 * t) + 0.05 * np.sin(10 * t)
 
-# --- Plot 1: Noisy ECG ---
 plt.figure(figsize=(10, 4))
 plt.plot(t, noisy_ecg, color="blue", linewidth=2)
 plt.title("Original ECG Signal with Noise", fontsize=12)
@@ -23,7 +18,6 @@ plt.grid(True, linestyle="--", alpha=0.5)
 plt.savefig("ecg_noisy.png", dpi=300, bbox_inches="tight")  # save
 plt.show()
 
-# --- Plot 2: Traditional Filter ---
 plt.figure(figsize=(10, 4))
 plt.plot(t, traditional_filtered, color="red", linewidth=2)
 plt.title("Traditional Low-Pass Filter (Butterworth/Chebyshev)", fontsize=12)
@@ -33,7 +27,6 @@ plt.grid(True, linestyle="--", alpha=0.5)
 plt.savefig("ecg_traditional.png", dpi=300, bbox_inches="tight")  # save
 plt.show()
 
-# --- Plot 3: Fractional Prabhakar-based Filter ---
 plt.figure(figsize=(10, 4))
 plt.plot(t, prabhakar_filtered, color="green", linewidth=2)
 plt.title("Fractional Prabhakar-Based Low-Pass Filter", fontsize=12)
