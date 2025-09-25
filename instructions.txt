@@ -1,0 +1,6 @@
+To run the program 
+	run the code 
+	 => pip install -r requirements.txt
+	
+and run 
+	=> python code.py
